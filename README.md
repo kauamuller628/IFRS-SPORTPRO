@@ -24,7 +24,6 @@ Demonstrar conceitos essenciais de desenvolvimento web utilizando **JavaScript p
 - Tailwind CSS (CDN)  
 - JavaScript (ES6+)  
 - LocalStorage  
-- Layout responsivo (Mobile First)
 
 ## Estrutura do Projeto
 ```text
