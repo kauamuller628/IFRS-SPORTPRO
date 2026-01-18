@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Produtos | SPORTPRO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+    <!-- HEADER (mesmo das outras páginas) -->
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="index.html" class="text-2xl font-extrabold">
+          SPORT<span class="text-red-600">PRO</span>
+        </a>
+        <nav class="flex gap-8 text-sm font-medium">
+          <a href="index.html">Home</a>
+          <a href="products.html">Produtos</a>
+          <a href="cart.html">Carrinho</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main
+      class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 gap-10"
+    >
+      <!-- FILTROS -->
+      <aside class="bg-white rounded-2xl shadow p-6 space-y-6">
+        <h2 class="font-bold text-lg">Filtros</h2>
+
+        <!-- CATEGORIA -->
+        <div>
+          <p class="font-semibold mb-2">Categoria</p>
+          <select
+            id="categoryFilter"
+            class="w-full border rounded-lg px-3 py-2"
+          >
+            <option value="">Todas</option>
+            <option value="camiseta">Camisetas</option>
+            <option value="calcado">Calçados</option>
+            <option value="acessorio">Acessórios</option>
+          </select>
+        </div>
+
+        <!-- PREÇO -->
+        <div>
+          <p class="font-semibold mb-2">Preço Máx.</p>
+          <input
+            id="priceFilter"
+            type="range"
+            min="50"
+            max="500"
+            value="500"
+            class="w-full"
+          />
+          <p class="text-sm mt-1">Até R$ <span id="priceValue">500</span></p>
+        </div>
+
+        <!-- ORDENAÇÃO -->
+        <div>
+          <p class="font-semibold mb-2">Ordenar por</p>
+          <select id="sortFilter" class="w-full border rounded-lg px-3 py-2">
+            <option value="relevance">Relevância</option>
+            <option value="price-asc">Preço ↑</option>
+            <option value="price-desc">Preço ↓</option>
+            <option value="newest">Mais recentes</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- GRID DE PRODUTOS -->
+      <section class="lg:col-span-3">
+        <div
+          id="productsGrid"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+        ></div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-gray-300 mt-16">
+      <div
+        class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8"
+      >
+        <div>
+          <h2 class="text-white text-lg font-bold mb-3">SPORTPRO</h2>
+          <p class="text-sm">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates
+            dolores earum tempore autem fugit illo, quas aut libero.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Links rápidos</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white">Início</a></li>
+            <li>
+              <a href="products.html" class="hover:text-white">Produtos</a>
+            </li>
+            <li><a href="cart.html" class="hover:text-white">Carrinho</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Contato</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Email: contato@minhaloja.com</li>
+            <li>Telefone: (11) 99999-9999</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Localização</h3>
+          <p class="text-sm">
+            Av. Paulista, 1000<br />
+            São Paulo - SP<br />
+            CEP 01310-100
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 text-center py-4 text-sm">
+        © 2026 Minha Loja. Todos os direitos reservados.
+      </div>
+    </footer>
+
+    <script src="assets/js/products.js"></script>
+  </body>
+</html>

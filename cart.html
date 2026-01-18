@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Carrinho | SPORTPRO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+    <!-- HEADER -->
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="index.html" class="text-2xl font-extrabold">
+          SPORT<span class="text-red-600">PRO</span>
+        </a>
+        <nav class="flex gap-8 text-sm font-medium">
+          <a href="index.html">Home</a>
+          <a href="products.html">Produtos</a>
+          <a href="cart.html" class="text-red-600">Carrinho</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+      <h1 class="text-3xl font-extrabold mb-10">Carrinho de Compras</h1>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <!-- ITENS -->
+        <div
+          id="cartItems"
+          class="lg:col-span-2 bg-white rounded-2xl shadow p-6 space-y-6"
+        ></div>
+
+        <!-- RESUMO -->
+        <div class="bg-white rounded-2xl shadow p-6 h-fit">
+          <h2 class="text-xl font-bold mb-6">Resumo</h2>
+
+          <div class="flex justify-between mb-4 text-sm">
+            <span>Subtotal</span>
+            <span id="subtotal">R$ 0,00</span>
+          </div>
+
+          <div class="flex justify-between mb-4 text-sm">
+            <span>Frete</span>
+            <span class="text-green-600">Grátis</span>
+          </div>
+
+          <div class="border-t pt-4 flex justify-between text-lg font-bold">
+            <span>Total</span>
+            <span id="total">R$ 0,00</span>
+          </div>
+
+          <button
+            class="w-full mt-6 bg-red-600 text-white py-4 rounded-lg font-semibold hover:bg-red-700"
+          >
+            Finalizar compra
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-gray-300 mt-16">
+      <div
+        class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8"
+      >
+        <div>
+          <h2 class="text-white text-lg font-bold mb-3">SPORTPRO</h2>
+          <p class="text-sm">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates
+            dolores earum tempore autem fugit illo, quas aut libero.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Links rápidos</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white">Início</a></li>
+            <li>
+              <a href="products.html" class="hover:text-white">Produtos</a>
+            </li>
+            <li><a href="cart.html" class="hover:text-white">Carrinho</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Contato</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Email: contato@minhaloja.com</li>
+            <li>Telefone: (11) 99999-9999</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Localização</h3>
+          <p class="text-sm">
+            Av. Paulista, 1000<br />
+            São Paulo - SP<br />
+            CEP 01310-100
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 text-center py-4 text-sm">
+        © 2026 Minha Loja. Todos os direitos reservados.
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/cart.js"></script>
+
+    <script>
+      const container = document.getElementById("cartItems");
+      const subtotalEl = document.getElementById("subtotal");
+      const totalEl = document.getElementById("total");
+
+      function renderCart() {
+        container.innerHTML = "";
+
+        if (cart.length === 0) {
+          container.innerHTML = `
+          <p class="text-center text-gray-500">
+            Seu carrinho está vazio.
+          </p>
+        `;
+        } else {
+          cart.forEach((item) => {
+            container.innerHTML += `
+            <div class="flex flex-col md:flex-row items-center gap-6 border-b pb-6">
+
+              <img src="${
+                item.image
+              }" class="w-24 h-24 rounded-lg object-cover">
+
+              <div class="flex-1">
+                <h3 class="font-semibold text-lg">${item.name}</h3>
+                <p class="text-sm text-gray-500">
+                  Preço unitário: R$ ${item.price.toFixed(2)}
+                </p>
+
+                <div class="flex items-center gap-4 mt-4">
+                  <input
+                    type="number"
+                    min="1"
+                    value="${item.qty}"
+                    onchange="updateQty(${item.id}, this.value)"
+                    class="w-20 border rounded-lg px-3 py-2"
+                  />
+
+                  <button
+                    onclick="removeItem(${item.id})"
+                    class="text-red-600 text-sm hover:underline"
+                  >
+                    Remover
+                  </button>
+                </div>
+              </div>
+
+              <div class="font-bold text-lg">
+                R$ ${(item.price * item.qty).toFixed(2)}
+              </div>
+
+            </div>
+          `;
+          });
+        }
+
+        subtotalEl.innerText = "R$ " + getTotal().toFixed(2);
+        totalEl.innerText = "R$ " + getTotal().toFixed(2);
+      }
+
+      renderCart();
+    </script>
+  </body>
+</html>

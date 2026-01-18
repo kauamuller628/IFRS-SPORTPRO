@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Produto | SPORTPRO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+    <!-- HEADER -->
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="index.html" class="text-2xl font-extrabold">
+          SPORT<span class="text-red-600">PRO</span>
+        </a>
+        <nav class="flex gap-8 text-sm font-medium">
+          <a href="index.html">Home</a>
+          <a href="products.html">Produtos</a>
+          <a href="cart.html">Carrinho</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- GALERIA -->
+        <div>
+          <img
+            id="mainImage"
+            class="w-full rounded-2xl shadow mb-6 object-cover"
+          />
+
+          <div id="thumbnails" class="flex gap-4"></div>
+        </div>
+
+        <!-- INFO PRODUTO -->
+        <div>
+          <h1 id="productName" class="text-3xl font-bold mb-4"></h1>
+          <p
+            id="productPrice"
+            class="text-2xl text-red-600 font-semibold mb-6"
+          ></p>
+
+          <p class="text-gray-600 mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Produto
+            ideal para atletas semi-profissionais e profissionais, oferecendo
+            alto desempenho, durabilidade e conforto.
+          </p>
+
+          <!-- VARIAÇÕES -->
+          <div class="mb-6">
+            <p class="font-semibold mb-2">Tamanho</p>
+            <div class="flex gap-3" id="sizes"></div>
+          </div>
+
+          <div class="mb-6">
+            <p class="font-semibold mb-2">Cor</p>
+            <div class="flex gap-3" id="colors"></div>
+          </div>
+
+          <!-- QUANTIDADE -->
+          <div class="mb-6">
+            <label class="font-semibold block mb-2">Quantidade</label>
+            <input
+              id="quantity"
+              type="number"
+              min="1"
+              value="1"
+              class="w-24 border rounded-lg px-3 py-2"
+            />
+          </div>
+
+          <!-- BOTÃO -->
+          <button
+            onclick="addToCart()"
+            class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold transition"
+          >
+            Adicionar ao Carrinho
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-gray-300 mt-16">
+      <div
+        class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8"
+      >
+        <div>
+          <h2 class="text-white text-lg font-bold mb-3">SPORTPRO</h2>
+          <p class="text-sm">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates
+            dolores earum tempore autem fugit illo, quas aut libero.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Links rápidos</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white">Início</a></li>
+            <li>
+              <a href="products.html" class="hover:text-white">Produtos</a>
+            </li>
+            <li><a href="cart.html" class="hover:text-white">Carrinho</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Contato</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Email: contato@minhaloja.com</li>
+            <li>Telefone: (11) 99999-9999</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-3">Localização</h3>
+          <p class="text-sm">
+            Av. Paulista, 1000<br />
+            São Paulo - SP<br />
+            CEP 01310-100
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 text-center py-4 text-sm">
+        © 2026 Minha Loja. Todos os direitos reservados.
+      </div>
+    </footer>
+
+    <script src="assets/js/product.js"></script>
+  </body>
+</html>
