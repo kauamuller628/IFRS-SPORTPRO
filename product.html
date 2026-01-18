@@ -8,7 +8,7 @@
   </head>
 
   <body class="bg-gray-100 text-gray-800">
-    <!-- HEADER -->
+
     <header class="bg-white shadow sticky top-0 z-50">
       <div
         class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
@@ -24,10 +24,8 @@
       </div>
     </header>
 
-    <!-- CONTEÚDO -->
     <main class="max-w-7xl mx-auto px-6 py-16">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <!-- GALERIA -->
         <div>
           <img
             id="mainImage"
@@ -37,7 +35,6 @@
           <div id="thumbnails" class="flex gap-4"></div>
         </div>
 
-        <!-- INFO PRODUTO -->
         <div>
           <h1 id="productName" class="text-3xl font-bold mb-4"></h1>
           <p
@@ -51,7 +48,6 @@
             alto desempenho, durabilidade e conforto.
           </p>
 
-          <!-- VARIAÇÕES -->
           <div class="mb-6">
             <p class="font-semibold mb-2">Tamanho</p>
             <div class="flex gap-3" id="sizes"></div>
@@ -62,7 +58,6 @@
             <div class="flex gap-3" id="colors"></div>
           </div>
 
-          <!-- QUANTIDADE -->
           <div class="mb-6">
             <label class="font-semibold block mb-2">Quantidade</label>
             <input
@@ -74,7 +69,6 @@
             />
           </div>
 
-          <!-- BOTÃO -->
           <button
             onclick="addToCart()"
             class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold transition"
@@ -85,7 +79,6 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-black text-gray-300 mt-16">
       <div
         class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8"
